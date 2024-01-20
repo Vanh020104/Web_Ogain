@@ -1,0 +1,8 @@
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.csproj.AssemblyReference.cache
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.AssemblyInfoInputs.cache
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.AssemblyInfo.cs
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.csproj.CoreCompileInputs.cache
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.RazorAssemblyInfo.cache
+C:\Users\vietanh\source\repos\OgainShop\OgainShop\obj\Debug\net7.0\OgainShop.RazorAssemblyInfo.cs
