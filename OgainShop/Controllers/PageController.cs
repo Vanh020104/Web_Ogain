@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ProSem3.Controllers
+namespace OgainShop.Controllers
 {
     public class PageController : Controller
     {

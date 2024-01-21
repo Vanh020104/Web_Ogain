@@ -1,4 +1,4 @@
-﻿namespace ProjectGroup3.Models
+﻿namespace OgainShop.Models
 {
     public class Category
     {
