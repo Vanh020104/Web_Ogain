@@ -11,6 +11,10 @@ namespace OgainShop.Controllers
         {
             return View("OrderManagement/order");
         }
+        public IActionResult detailOrder()
+        {
+            return View("OrderManagement/detailOrder");
+        }
 
         // Customer Management
         public IActionResult customer()
