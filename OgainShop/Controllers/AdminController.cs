@@ -42,6 +42,9 @@ namespace OgainShop.Controllers
         {
             return View("DashboardAdmin/dashboard");
         }
+
+
+        // Revenue
         public IActionResult revenue()
         {
             return View("RevenueManagement/revenue");

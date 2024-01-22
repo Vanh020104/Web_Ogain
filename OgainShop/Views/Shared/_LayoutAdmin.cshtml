@@ -72,15 +72,9 @@
                     <i class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Order management</span>
                 </a>
             </li>
-            <li>
-                <a asp-controller="Admin" asp-action="revenue" class="app-menu__item">
-                    <i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span>
-                </a>
-            </li>
-
 
             <li>
-                <a class="app-menu__item" href="quan-ly-bao-cao.html">
+                <a class="app-menu__item" href="/Admin/revenue">
                     <i class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Sales report</span>
                 </a>
             </li>
@@ -92,19 +86,19 @@
         @RenderBody()
     </div>
     <!-- Essential javascripts for application to work-->
-    <script src="~/Admin/js/jquery-3.2.1.min.js"></script>
-    <script src="~/Admin/js/popper.min.js"></script>
-    <script src="~/Admin/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="~/Admin/src/jquery.table2excel.js"></script>
-    <script src="~/Admin/js/main.js"></script>
+    <script src="src/jquery.table2excel.js"></script>
+    <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
-    <script src="~/Admin/js/plugins/pace.min.js"></script>
+    <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- Data table plugin-->
-    <script type="text/javascript" src="~/Admin/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="~/Admin/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
     <script>function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
@@ -115,7 +109,7 @@
                 swal({
                     title: "Cảnh báo",
 
-                    text: "Bạn có chắc chắn là muốn xóa khách hàng này?",
+                    text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
                     buttons: ["Hủy bỏ", "Đồng ý"],
                 })
                     .then((willDelete) => {
@@ -133,7 +127,19 @@
             e.stopImmediatePropagation();
         });
 
+        //EXCEL
+        // $(document).ready(function () {
+        //   $('#').DataTable({
 
+        //     dom: 'Bfrtip',
+        //     "buttons": [
+        //       'excel'
+        //     ]
+        //   });
+        // });
+
+
+        //Thời Gian
         function time() {
             var today = new Date();
             var weekday = new Array(7);
@@ -183,13 +189,28 @@
                 win.print();
             }
         }
+        //     //Sao chép dữ liệu
+        //     var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+        // copyTextareaBtn.addEventListener('click', function(event) {
+        //   var copyTextarea = document.querySelector('.js-copytextarea');
+        //   copyTextarea.focus();
+        //   copyTextarea.select();
+
+        //   try {
+        //     var successful = document.execCommand('copy');
+        //     var msg = successful ? 'successful' : 'unsuccessful';
+        //     console.log('Copying text command was ' + msg);
+        //   } catch (err) {
+        //     console.log('Oops, unable to copy');
+        //   }
+        // });
 
 
         //Modal
         $("#show-emp").on("click", function () {
             $("#ModalUP").modal({ backdrop: false, keyboard: false })
         });</script>
-
 </body>
 </html>
 
