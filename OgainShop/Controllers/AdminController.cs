@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OgainShop.Data;
 
 namespace OgainShop.Controllers
 {
@@ -7,6 +9,13 @@ namespace OgainShop.Controllers
         // GET: /<controller>/
 
         // Order Management
+
+        private readonly OgainShopContext _context;
+
+        public AdminController(OgainShopContext context)
+        {
+            _context = context;
+        }
         public IActionResult order()
         {
             return View("OrderManagement/order");
@@ -23,10 +32,12 @@ namespace OgainShop.Controllers
         }
 
         // Product Management
-        public IActionResult product()
+        public async Task<IActionResult> Product()
         {
-            return View("ProductManagement/product");
+            var ogainShopContext = _context.Product.Include(p => p.Category);
+            return View("ProductManagement/Product", await ogainShopContext.ToListAsync());
         }
+
 
         public IActionResult addProduct()
         {
