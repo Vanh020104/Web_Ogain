@@ -4,11 +4,14 @@ using OgainShop.Data;
 using OgainShop.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<OgainShopContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("OgainShopContext") ?? throw new InvalidOperationException("Connection string 'OgainShopContext' not found.")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("OgainShopContex")));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -34,9 +37,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Page}/{action=home}/{id?}");
+    pattern: "{controller=Page}/{action=login}/{id?}");
 
 app.Run();

@@ -49,8 +49,9 @@ new Product { ProductName = "Product 2", Description = "Description 2", Price = 
                 // Seed data for User
                 var users = new User[]
                 {
-                    new User { Username = "user1", Password = "123456789", Email = "user1@example.com" },
-                    new User { Username = "user2", Password = "123456789", Email = "user2@example.com" }
+                    new User { Username = "admin", Password = "admin123", Email = "admin@example.com", Role = "Admin" },
+                    new User { Username = "user1", Password = "123456789", Email = "user1@example.com", Role = "User" },
+                    new User { Username = "user2", Password = "123456789", Email = "user2@example.com", Role = "User" }
                     // Add more users as needed
                 };
                 foreach (var user in users)
