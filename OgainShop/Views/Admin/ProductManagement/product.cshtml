@@ -18,7 +18,7 @@
                     <div class="row element-button">
                         <div class="col-sm-2">
 
-                            <a class="btn btn-add btn-sm" href="form-add-san-pham.html" title="Thêm">
+                            <a class="btn btn-add btn-sm" asp-controller="Admin" asp-action="addProduct" title="Thêm">
                                 <i class="fas fa-plus"></i>
                                 Tạo mới sản phẩm
                             </a>
@@ -57,7 +57,9 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                             <tr>
-                                <th width="10"><input type="checkbox" id="all"></th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProductId)
+                                </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Thumbnail)
                                 </th>
@@ -79,7 +81,10 @@
                         <tbody>
                             @foreach (var item in Model) {
                             <tr>
-                                <td></td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductId)
+                                    </td>
+                                
                                     <td>
                                         <img src="@item.Thumbnail"  width="100" height="100" />
                                     </td>
@@ -96,7 +101,7 @@
                                     @Html.DisplayFor(modelItem => item.Category.CategoryId)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                                    <a  asp-action="editProduct" asp-route-id="@item.ProductId">Edit</a> |
                                     <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
                                     <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
                                 </td>

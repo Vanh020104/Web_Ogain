@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OgainShop.Data;
+using OgainShop.Models;
 using OgainShop.Models.Authentication;
 
 namespace OgainShop.Controllers
@@ -45,13 +47,54 @@ namespace OgainShop.Controllers
 
         public IActionResult addProduct()
         {
+            var categories = _context.Category.OrderBy(c => c.CategoryName).ToList();
+            ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName");
+
             return View("ProductManagement/addProduct");
         }
+        [Authentication]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> addProduct(Product model, IFormFile thumbnail)
+        {
+            if (true)
+            {
+                // Xử lý khi dữ liệu hợp lệ
+
+                // Xử lý tệp tin ảnh và lưu đường dẫn
+                if (thumbnail != null && thumbnail.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine("wwwroot", "img", "product");
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    var imagePath = Path.Combine(uploadsFolder, Guid.NewGuid().ToString() + "_" + thumbnail.FileName);
+                    using (var stream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await thumbnail.CopyToAsync(stream);
+                    }
+
+                    // Lưu đường dẫn vào trường Thumbnail của mô hình
+                    model.Thumbnail = "/img/product/" + Path.GetFileName(imagePath);
+                }
+                _context.Add(model);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Product));
+            }
+
+            // Trả về View nếu dữ liệu không hợp lệ
+            return View(model);
+        }
+
+
         [Authentication]
         public IActionResult editProduct()
         {
             return View("ProductManagement/editProduct");
         }
+
         [Authentication]
         // Dashboard
         public IActionResult dashboard()
