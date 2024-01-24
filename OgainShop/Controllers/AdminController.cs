@@ -32,10 +32,19 @@ namespace OgainShop.Controllers
         }
         [Authentication]
         // Customer Management
-        public IActionResult customer()
+        public async Task<IActionResult> Customer()
         {
-            return View("CustomerManagement/customer");
+            if (_context.User != null)
+            {
+                var userList = await _context.User.ToListAsync();
+                return View("CustomerManagement/customer", userList);
+            }
+            else
+            {
+                return Problem("Entity set 'OgainShopContext.User' is null.");
+            }
         }
+
         [Authentication]
         // Product Management
         public async Task<IActionResult> Product()
