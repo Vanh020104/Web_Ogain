@@ -101,9 +101,13 @@
                                     @Html.DisplayFor(modelItem => item.Category.CategoryId)
                                 </td>
                                 <td>
-                                    <a  asp-action="editProduct" asp-route-id="@item.ProductId">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                                    <a asp-controller="Admin" asp-action="editProduct" asp-route-id="@item.ProductId">Edit</a> |
+                                    <form asp-controller="Admin" asp-action="deleteProduct" asp-route-id="@item.ProductId" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">
+                                        <button type="submit" class="btn btn-link">Delete</button>
+                                    </form>
+
+
+
                                 </td>
                             </tr>
                             }
