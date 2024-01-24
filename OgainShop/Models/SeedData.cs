@@ -36,8 +36,8 @@ namespace OgainShop.Data
                 // Seed data for Product
                 var products = new Product[]
                 {
-                 new Product { ProductName = "Product 1", Description = "Description 1", Price = 10.99m, Thumbnail = "/img/latest-product/lp-1.jpg", CategoryId = 1 },
-new Product { ProductName = "Product 2", Description = "Description 2", Price = 20.99m, Thumbnail = "/img/latest-product/lp-2.jpg", CategoryId = 2 }
+                 new Product { ProductName = "Product 1", Description = "Description 1", Price = 10.99m, Thumbnail = "/img/latest-product/lp-1.jpg", CategoryId = 1,Qty=10 },
+new Product { ProductName = "Product 2", Description = "Description 2", Price = 20.99m, Thumbnail = "/img/latest-product/lp-2.jpg", CategoryId = 2,Qty=10  }
 
                 };
                 foreach (var product in products)
