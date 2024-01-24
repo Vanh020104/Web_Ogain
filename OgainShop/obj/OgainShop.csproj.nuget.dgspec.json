@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vietanh\\source\\repos\\OgainShop\\OgainShop\\OgainShop.csproj": {}
+    "C:\\Users\\vietanh\\Source\\Repos\\Web_Ogain\\OgainShop\\OgainShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vietanh\\source\\repos\\OgainShop\\OgainShop\\OgainShop.csproj": {
+    "C:\\Users\\vietanh\\Source\\Repos\\Web_Ogain\\OgainShop\\OgainShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vietanh\\source\\repos\\OgainShop\\OgainShop\\OgainShop.csproj",
+        "projectUniqueName": "C:\\Users\\vietanh\\Source\\Repos\\Web_Ogain\\OgainShop\\OgainShop.csproj",
         "projectName": "OgainShop",
-        "projectPath": "C:\\Users\\vietanh\\source\\repos\\OgainShop\\OgainShop\\OgainShop.csproj",
+        "projectPath": "C:\\Users\\vietanh\\Source\\Repos\\Web_Ogain\\OgainShop\\OgainShop.csproj",
         "packagesPath": "C:\\Users\\vietanh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vietanh\\source\\repos\\OgainShop\\OgainShop\\obj\\",
+        "outputPath": "C:\\Users\\vietanh\\Source\\Repos\\Web_Ogain\\OgainShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vietanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,22 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

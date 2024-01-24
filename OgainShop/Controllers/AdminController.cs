@@ -32,6 +32,25 @@ namespace OgainShop.Controllers
         {
             return View("OrderManagement/detailOrder");
         }
+        public IActionResult successOrder()
+        {
+            return View("CustomerManagement/successOrder");
+        }
+        public IActionResult detailsUser(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = _context.User.FirstOrDefault(m => m.UserId == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View("CustomerManagement/detailsUser", user);
+        }
         [Authentication]
         // Customer Management
         public async Task<IActionResult> Customer()

@@ -6,7 +6,7 @@ using OgainShop.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<OgainShopContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("OgainShopContex")));
+   options.UseSqlServer(builder.Configuration.GetConnectionString("OgainShopContext") ?? throw new InvalidOperationException("Connection string 'OgainShopContext' not found.")));
 
 
 // Add services to the container.
