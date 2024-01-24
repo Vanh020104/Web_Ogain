@@ -17,7 +17,7 @@
                 <div class="tile-body">
                     <div class="column element-button">
 
-                        <form class="row flex-column" asp-controller="Admin" asp-action="addProduct" method="post">
+                        <form class="row flex-column" asp-controller="Admin" asp-action="addProduct" method="post" enctype="multipart/form-data">
 
                             <div class="form-group col-md-3">
                                 <label asp-for="ProductName" class="control-label">Name Product</label>
@@ -26,17 +26,17 @@
 
 
                             @* <div class="form-group  col-md-3">
-        <label class="control-label">Số lượng</label>
-        <input class="form-control" type="number">
-        </div>
-        <div class="form-group col-md-3 ">
-        <label for="exampleSelect1" class="control-label">Tình trạng</label>
-        <select class="form-control" id="exampleSelect1">
-        <option>-- Chọn tình trạng --</option>
-        <option>Còn hàng</option>
-        <option>Hết hàng</option>
-        </select>
-        </div> *@
+                            <label class="control-label">Số lượng</label>
+                            <input class="form-control" type="number">
+                            </div>
+                            <div class="form-group col-md-3 ">
+                            <label for="exampleSelect1" class="control-label">Tình trạng</label>
+                            <select class="form-control" id="exampleSelect1">
+                            <option>-- Chọn tình trạng --</option>
+                            <option>Còn hàng</option>
+                            <option>Hết hàng</option>
+                            </select>
+                            </div> *@
                             <div class="form-group col-md-3">
                                 <label for="exampleSelect1" class="control-label">Category</label>
                                 <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.Categories">
@@ -49,10 +49,11 @@
                                 <input asp-for="Price" class="form-control">
                             </div>
                             <div class="form-group col-md-12">
-                                <label class="control-label">Ảnh sản phẩm</label>
-                                <input type="file" id="ImageUpload" name="Thumbnail" onchange="readURL(this);" />
-                                <!-- Hiển thị hình ảnh xem trước -->
-                                <img id="thumbimage" style="display: none" />
+                                <label asp-for="Thumbnail" class="control-label">Thumbnail</label>
+                                <div>
+                                    <input type="file" asp-for="Thumbnail" class="form-control" onchange="displayThumbnail(this);" />
+                                    <img id="thumbnailImage" alt="Thumbnail image" style="display: none; max-width: 50%;" />
+                                </div>
                             </div>
 
 
@@ -72,15 +73,12 @@
 <script>
     function displayThumbnail(input) {
         var thumbnailImage = document.getElementById('thumbnailImage');
-
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
                 thumbnailImage.src = e.target.result;
                 thumbnailImage.style.display = 'block';
             };
-
             reader.readAsDataURL(input.files[0]);
         }
     }

@@ -89,7 +89,6 @@ namespace OgainShop.Controllers
 
                     // Lưu đường dẫn vào trường Thumbnail của mô hình
                     model.Thumbnail = "/img/product/" + Path.GetFileName(imagePath);
-
                 }
                 _context.Add(model);
                 await _context.SaveChangesAsync();
@@ -99,7 +98,6 @@ namespace OgainShop.Controllers
             // Trả về View nếu dữ liệu không hợp lệ
             return View(model);
         }
-
 
         [Authentication]
         [HttpGet]

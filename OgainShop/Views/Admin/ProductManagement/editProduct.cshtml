@@ -45,14 +45,18 @@
                             <input class="form-control" asp-for="Price" />
                         </div>
 
-                  
+
 
                         <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh sản phẩm</label>
-                            <input type="file" id="ImageUpload" name="Thumbnail" onchange="readURL(this);" />
-                            <!-- Hiển thị hình ảnh xem trước -->
-                            <img id="thumbimage" style="display: none" />
-                        </div>
+    <label asp-for="Thumbnail" class="control-label">Thumbnail</label>
+    <div>
+        @if (!string.IsNullOrEmpty(Model.Thumbnail))
+        {
+            <img id="thumbnailImage" src="@Model.Thumbnail" alt="Thumbnail image" style="max-width: 50%;" />
+        }
+        <input type="file" asp-for="Thumbnail" class="form-control" onchange="displayThumbnail(this);" />
+    </div>
+</div
 
                         <div class="form-group col-md-12">
                             <label class="control-label">Mô tả sản phẩm</label>
@@ -68,3 +72,23 @@
         </div>
     </div>
 </main>
+<script>
+    function displayThumbnail(input) {
+        var fileInput = input;
+        var thumbnailImage = document.getElementById('thumbnailImage');
+
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                thumbnailImage.src = e.target.result;
+                thumbnailImage.style.display = 'block';
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            thumbnailImage.src = '';
+            thumbnailImage.style.display = 'none';
+        }
+    }
+</script>
