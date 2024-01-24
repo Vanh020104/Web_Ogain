@@ -21,9 +21,11 @@ namespace OgainShop.Controllers
             _context = context;
         }
         [Authentication]
-        public IActionResult order()
+        public async Task<IActionResult> order()
         {
-            return View("OrderManagement/order");
+            var ogainShopContext = _context.Order.Include(o => o.User);
+
+            return View("OrderManagement/order", await ogainShopContext.ToListAsync());
         }
         [Authentication]
         public IActionResult detailOrder()
