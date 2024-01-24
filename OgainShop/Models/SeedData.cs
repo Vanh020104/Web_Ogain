@@ -63,12 +63,12 @@ new Product { ProductName = "Product 2", Description = "Description 2", Price = 
                 // Seed data for Order
                 var orders = new Order[]
                 {
-                                   new Order { UserId = 1, OrderDate = DateTime.Now, TotalAmount = 30.99m, Status = true, IsPaid = true },
-new Order { UserId = 2, OrderDate = DateTime.Now, TotalAmount = 40.99m, Status = false, IsPaid = false },
-new Order { UserId = 1, OrderDate = DateTime.Now.AddDays(-1), TotalAmount = 25.50m, Status = true, IsPaid = false },
-new Order { UserId = 3, OrderDate = DateTime.Now.AddDays(-2), TotalAmount = 55.75m, Status = false, IsPaid = true },
-new Order { UserId = 2, OrderDate = DateTime.Now.AddDays(-3), TotalAmount = 60.25m, Status = true, IsPaid = false },
-new Order { UserId = 3, OrderDate = DateTime.Now.AddDays(-4), TotalAmount = 75.00m, Status = false, IsPaid = true },
+                                   new Order { UserId = 1, OrderDate = DateTime.Now, TotalAmount = 30.99m, Status = "Chờ xác nhận", IsPaid = "Chưa thanh toán" },
+new Order { UserId = 2, OrderDate = DateTime.Now, TotalAmount = 40.99m, Status = "Chờ xác nhận", IsPaid = "Chưa thanh toán" },
+new Order { UserId = 1, OrderDate = DateTime.Now.AddDays(-1), TotalAmount = 25.50m, Status = "Chờ xác nhận", IsPaid = "Chưa thanh toán" },
+new Order { UserId = 3, OrderDate = DateTime.Now.AddDays(-2), TotalAmount = 55.75m, Status = "Chờ xác nhận", IsPaid = "Chưa thanh toán" },
+new Order { UserId = 2, OrderDate = DateTime.Now.AddDays(-3), TotalAmount = 60.25m, Status = "Chờ xác nhận", IsPaid = "Chưa thanh toán" },
+new Order { UserId = 3, OrderDate = DateTime.Now.AddDays(-4), TotalAmount = 75.00m, Status = "Chờ xác nhận", IsPaid = "Chưa thanh toán" },
                 // Add more orders as needed
                 };
                 foreach (var order in orders)
